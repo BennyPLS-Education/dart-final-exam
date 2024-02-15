@@ -4,25 +4,26 @@ import 'package:firebase_database/firebase_database.dart';
 
 class FirebaseProvider extends ChangeNotifier {
   final DatabaseReference _realtimeDatabase = FirebaseDatabase.instance.ref();
-  Map<String, Tree>? users;
+  Map<String, Tree>? trees;
 
   Future<void> getAll() async {
-    users = null;
+    trees = null;
 
     try {
       var data = await _realtimeDatabase.child('users').get();
+      print(data.value);
 
       if (data.value == null) {
-        users = {};
+        trees = {};
       }
 
-      users = {};
+      trees = {};
       final userMap = castSnapshotData(data);
       for (var key in userMap.keys) {
-        users![key] = Tree.fromMap(userMap[key]!);
+        trees![key] = Tree.fromMap(userMap[key]!);
       }
     } catch (e) {
-      users = {};
+      trees = {};
     }
 
     notifyListeners();

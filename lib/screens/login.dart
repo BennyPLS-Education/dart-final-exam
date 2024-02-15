@@ -1,4 +1,5 @@
 import 'package:examen_final_aguilo/models/models.dart';
+import 'package:examen_final_aguilo/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,8 +22,10 @@ class _LoginState extends State<Login> {
   void initState() {
     super.initState();
     Preferences preferences = Provider.of<Preferences>(context, listen: false);
+    _passwordController.text = '';
+    _emailController.text = '';
     if (preferences.user != null) {
-      Navigator.pushReplacementNamed(context, 'home');
+      Navigator.pushReplacementNamed(context, Home.routeName);
     }
   }
 
@@ -64,7 +67,7 @@ class _LoginState extends State<Login> {
     User user = User(email: _emailController.text, password: _passwordController.text);
     Provider.of<Preferences>(context, listen: false).setLogged(user);
 
-    Navigator.pushReplacementNamed(context, 'home');
+    Navigator.pushReplacementNamed(context, Home.routeName);
   }
 
   @override

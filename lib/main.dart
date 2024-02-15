@@ -1,3 +1,4 @@
+import 'package:examen_final_aguilo/providers/geo_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => FirebaseProvider()),
         ChangeNotifierProvider(create: (_) => Preferences()),
+        Provider(create: (_) => GeoProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -32,8 +34,9 @@ class MyApp extends StatelessWidget {
           Home.routeName: (context) => const Home(),
           Details.routeName: (context) => const Details(),
           CreateUser.routeName: (context) => const CreateUser(),
+          GeoMap.routeName: (context) => const GeoMap(),
         },
-        initialRoute: Home.routeName,
+        initialRoute: Login.routeName,
       ),
     );
   }

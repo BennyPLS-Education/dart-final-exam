@@ -23,8 +23,6 @@ class _CreateUserState extends State<CreateUser> {
 
   @override
   Widget build(BuildContext context) {
-    final firebase = Provider.of<FirebaseProvider>(context, listen: false);
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Create'),
@@ -68,7 +66,7 @@ class _CreateUserState extends State<CreateUser> {
             ),
             ElevatedButton(
               onPressed: () {
-                createUser();
+                createTree();
               },
               child: const Text('Create'),
             )
@@ -78,8 +76,15 @@ class _CreateUserState extends State<CreateUser> {
     );
   }
 
-  void createUser() {
-    final user = Tree();
+  void createTree() {
+    final user = Tree(
+      nom: _nameController.text,
+      varietat: _varietatController.text,
+      tipus: _tipusController.text,
+      foto: _fotoController.text,
+      detall: _detallController.text,
+      autocton: autocton,
+    );
 
     Provider.of<FirebaseProvider>(context, listen: false).insert(user);
 

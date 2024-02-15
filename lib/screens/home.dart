@@ -1,8 +1,12 @@
 import 'package:examen_final_aguilo/models/tree.dart';
 import 'package:examen_final_aguilo/providers/providers.dart';
 import 'package:examen_final_aguilo/screens/create.dart';
+import 'package:examen_final_aguilo/screens/details.dart';
+import 'package:examen_final_aguilo/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'geo_map.dart';
 
 class Home extends StatefulWidget {
   static const routeName = '/';
@@ -29,18 +33,23 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: const Text('Firebase CRUD'),
         actions: [
-          // logout button
+          IconButton(
+            icon: const Icon(Icons.location_on),
+            onPressed: () {
+              Navigator.pushNamed(context, GeoMap.routeName);
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () {
-
-              Navigator.pop(context);
+              Provider.of<Preferences>(context, listen: false).setLogged(null);
+              Navigator.pushReplacementNamed(context, Login.routeName);
             },
           ),
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: () {
-              firebase.users = null;
+              firebase.trees = null;
               setState(() {});
               firebase.getAll();
             },
@@ -48,11 +57,10 @@ class _HomeState extends State<Home> {
         ],
       ),
       body: Center(
-        child: firebase.users == null ? const Center(child: CircularProgressIndicator()) : _listView(firebase.users!),
+        child: firebase.trees == null ? const Center(child: CircularProgressIndicator()) : _listView(firebase.trees!),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Provider.of<Preferences>(context, listen: false).setLogged(null);
           Navigator.pushNamed(context, CreateUser.routeName);
         },
         child: const Icon(Icons.add),
@@ -84,6 +92,9 @@ class _HomeState extends State<Home> {
               leading: const Icon(Icons.person),
               title: Text(users[key]?.nom ?? ""),
               subtitle: Text(users[key]?.varietat ?? ""),
+              onTap: () {
+                Navigator.pushNamed(context, Details.routeName, arguments: key);
+              },
             ),
           ),
         );
