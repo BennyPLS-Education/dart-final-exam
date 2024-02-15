@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+/// Response from an API to get the latlang
 class Geo {
   String? ip;
   String? city;
@@ -76,6 +77,7 @@ class Geo {
         "readme": readme,
       };
 
+  // function converter to convert String of latlang to LatLng Objects.
   LatLng getLatLng() {
     final split = loc?.split(',');
 

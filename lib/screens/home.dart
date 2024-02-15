@@ -8,6 +8,9 @@ import 'package:provider/provider.dart';
 
 import 'geo_map.dart';
 
+/// This is the main screen to get all the information and show it in a list.
+///
+/// This screen is to show all the trees in a list and have the option to create, update and delete a tree.
 class Home extends StatefulWidget {
   static const routeName = '/';
 
@@ -61,18 +64,18 @@ class _HomeState extends State<Home> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, CreateUser.routeName);
+          Navigator.pushNamed(context, CreateTree.routeName);
         },
         child: const Icon(Icons.add),
       ),
     );
   }
 
-  Widget _listView(Map<String, Tree> users) {
+  Widget _listView(Map<String, Tree> tree) {
     return ListView.builder(
-      itemCount: users.length,
+      itemCount: tree.length,
       itemBuilder: (context, index) {
-        final key = users.keys.elementAt(index);
+        final key = tree.keys.elementAt(index);
 
         return Dismissible(
           key: UniqueKey(),
@@ -90,8 +93,8 @@ class _HomeState extends State<Home> {
             ),
             child: ListTile(
               leading: const Icon(Icons.person),
-              title: Text(users[key]?.nom ?? ""),
-              subtitle: Text(users[key]?.varietat ?? ""),
+              title: Text(tree[key]?.nom ?? ""),
+              subtitle: Text(tree[key]?.varietat ?? ""),
               onTap: () {
                 Navigator.pushNamed(context, Details.routeName, arguments: key);
               },

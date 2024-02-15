@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+// Firebase Object Mapping
 class Tree {
   String? nom;
   String? varietat;

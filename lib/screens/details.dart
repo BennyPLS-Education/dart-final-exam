@@ -4,6 +4,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 import '../providers/providers.dart';
 
+/// This is the screen to show the details of the tree.
 class Details extends StatelessWidget {
   static const routeName = '/details';
 

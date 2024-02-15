@@ -1,3 +1,4 @@
+// Preferences Model to be stored in the shared preferences.
 class User {
   final String email;
   final String password;

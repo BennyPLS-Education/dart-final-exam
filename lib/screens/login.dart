@@ -4,6 +4,7 @@ import 'package:examen_final_aguilo/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+/// This is the login screen to get the user information and log in.
 class Login extends StatefulWidget {
   static const routeName = '/login';
 

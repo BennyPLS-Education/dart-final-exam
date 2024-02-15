@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           Login.routeName: (context) => const Login(),
           Home.routeName: (context) => const Home(),
           Details.routeName: (context) => const Details(),
-          CreateUser.routeName: (context) => const CreateUser(),
+          CreateTree.routeName: (context) => const CreateTree(),
           GeoMap.routeName: (context) => const GeoMap(),
         },
         initialRoute: Login.routeName,

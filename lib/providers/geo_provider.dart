@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 
 import '../models/models.dart';
 
+// This is a provider to get all the information to get the current location.
 class GeoProvider extends ChangeNotifier {
   String? _ip;
   Geo? _geo;

@@ -4,16 +4,17 @@ import 'package:provider/provider.dart';
 import '../models/models.dart';
 import '../providers/providers.dart';
 
-class CreateUser extends StatefulWidget {
+// Create
+class CreateTree extends StatefulWidget {
   static const routeName = '/create';
 
-  const CreateUser({super.key});
+  const CreateTree({super.key});
 
   @override
-  State<CreateUser> createState() => _CreateUserState();
+  State<CreateTree> createState() => _CreateTreeState();
 }
 
-class _CreateUserState extends State<CreateUser> {
+class _CreateTreeState extends State<CreateTree> {
   final _nameController = TextEditingController();
   final _varietatController = TextEditingController();
   final _tipusController = TextEditingController();
@@ -77,7 +78,7 @@ class _CreateUserState extends State<CreateUser> {
   }
 
   void createTree() {
-    final user = Tree(
+    final tree = Tree(
       nom: _nameController.text,
       varietat: _varietatController.text,
       tipus: _tipusController.text,
@@ -86,7 +87,7 @@ class _CreateUserState extends State<CreateUser> {
       autocton: autocton,
     );
 
-    Provider.of<FirebaseProvider>(context, listen: false).insert(user);
+    Provider.of<FirebaseProvider>(context, listen: false).insert(tree);
 
     Navigator.of(context).pop();
   }
