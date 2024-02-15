@@ -34,7 +34,10 @@ class _GeoMapState extends State<GeoMap> {
         ),
         markers: {
           Marker(
-            markerId: MarkerId(postal.organization ?? 'Location!'),
+            markerId: MarkerId(postal.organization ?? 'Location'),
+            infoWindow: InfoWindow(
+              title: postal.organization ?? 'Location',
+            ),
             position: postal.latLng ?? const LatLng(0, 0),
           ),
         },

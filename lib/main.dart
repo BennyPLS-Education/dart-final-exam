@@ -1,7 +1,8 @@
 import 'package:examen_final_aguilo/providers/geo_provider.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'firebase_options.dart';
 import 'providers/providers.dart';
 import 'screens/screens.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => FirebaseProvider()),
         ChangeNotifierProvider(create: (_) => Preferences()),
-        Provider(create: (_) => GeoProvider()),
+        ChangeNotifierProvider(create: (_) => GeoProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -1,6 +1,6 @@
 import 'package:examen_final_aguilo/models/models.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/material.dart';
 
 class FirebaseProvider extends ChangeNotifier {
   final DatabaseReference _realtimeDatabase = FirebaseDatabase.instance.ref();
@@ -11,7 +11,6 @@ class FirebaseProvider extends ChangeNotifier {
 
     try {
       var data = await _realtimeDatabase.child('users').get();
-      print(data.value);
 
       if (data.value == null) {
         trees = {};

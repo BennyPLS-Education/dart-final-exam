@@ -1,6 +1,6 @@
+import 'package:examen_final_aguilo/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:examen_final_aguilo/models/models.dart';
 
 class Preferences extends ChangeNotifier {
   User? _user;

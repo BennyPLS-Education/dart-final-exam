@@ -19,10 +19,10 @@ class Ip {
   String toJson() => json.encode(toMap());
 
   factory Ip.fromMap(Map<String, dynamic> json) => Ip(
-    ip: json["ip"],
-  );
+        ip: json["ip"],
+      );
 
   Map<String, dynamic> toMap() => {
-    "ip": ip,
-  };
+        "ip": ip,
+      };
 }
