@@ -21,16 +21,18 @@ class _LoginState extends State<Login> {
   @override
   void initState() {
     super.initState();
-    Preferences preferences = Provider.of<Preferences>(context, listen: false);
     _passwordController.text = '';
     _emailController.text = '';
-    if (preferences.user != null) {
-      Navigator.pushReplacementNamed(context, Home.routeName);
-    }
   }
 
   @override
   Widget build(BuildContext context) {
+    Preferences preferences = Provider.of<Preferences>(context);
+
+    if (preferences.user != null) {
+      Navigator.pushReplacementNamed(context, Home.routeName);
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login'),
