@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => FirebaseProvider()),
-        // Provider(create: (_) =>
+        ChangeNotifierProvider(create: (_) => Preferences()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

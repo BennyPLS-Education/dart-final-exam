@@ -29,6 +29,14 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: const Text('Firebase CRUD'),
         actions: [
+          // logout button
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+
+              Navigator.pop(context);
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: () {
@@ -44,6 +52,7 @@ class _HomeState extends State<Home> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          Provider.of<Preferences>(context, listen: false).setLogged(null);
           Navigator.pushNamed(context, CreateUser.routeName);
         },
         child: const Icon(Icons.add),

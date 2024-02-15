@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "933925288875",
+    "firebase_url": "https://exam-9d06d-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "exam-9d06d",
+    "storage_bucket": "exam-9d06d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933925288875:android:68c870635e974399f670ee",
+        "android_client_info": {
+          "package_name": "com.example.examen_final_aguilo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZsxtMAR_jDMUKR6X-yQE4BenSv3DcPWg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933925288875:android:a8d7ac7f2a3b4322f670ee",
+        "android_client_info": {
+          "package_name": "com.example.firebase_crud"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZsxtMAR_jDMUKR6X-yQE4BenSv3DcPWg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
